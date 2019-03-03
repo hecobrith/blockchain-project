@@ -18,5 +18,4 @@ def hash_block(block):
     """
     hashable_block = block.__dict__.copy()
     hashable_block['transactions'] = [tx.to_ordered_dict() for tx in hashable_block['transactions']]
-    # the hashable_block.__dic__ will be the one to be passed as a dictionary to the dumps json method
     return hash_string_256(json.dumps(hashable_block, sort_keys=True).encode())
